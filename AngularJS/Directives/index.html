@@ -1,0 +1,23 @@
+<!doctype html>
+<html ng-app="plunker">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+
+<body >
+
+<div ng-controller="MainController as mainVm">
+    <business-card person="mainVm.user"></business-card>
+    <business-card person="mainVm.manager"></business-card>
+</div>
+
+<footer>
+    &copy; Hasan, Inc.
+</footer>
+
+<script src="angular.min.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>

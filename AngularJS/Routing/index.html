@@ -1,0 +1,41 @@
+<!doctype html>
+<html ng-app="plunkar">
+<head>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+<header>
+    <div class="container">
+        <nva>
+            <ul class="nav nav-pills">
+                <li><a href="#/users">Users</a></li>
+                <li><a href="#/resources">Post</a></li>
+                <li><a href="#">Messages</a></li>
+            </ul>
+        </nva>
+    </div>
+</header>
+
+<section ng-view>
+
+</section>
+
+
+<footer>
+    &copy; Hasan, Inc.
+</footer>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.5.8/angular-route.js"></script>
+<script src="app.js"></script>
+<script src="controllers/resources.controller.js"></script>
+<script src="controllers/users.controller.js"></script>
+<script src="controllers/user-detail.controller.js"></script>
+<script src="servieces/users.service.js"></script>
+</body>
+</html>

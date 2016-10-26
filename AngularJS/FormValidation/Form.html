@@ -1,0 +1,79 @@
+<!doctype html>
+<html ng-app="plunkar">
+<head>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script type="text/ng-template" id="add-form.tmpl">
+        <form name="userForm" ng-submit="mainVm.addUser()" novalidate>
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" name="firstName" id="firstName" ng-model="mainVm.newUsers.firstName"
+                       placeholder="Your First Name" required minlength="3">
+                <div ng-messages="userForm.firstName.$error" class="error" ng-if="userForm.firstName.$dirty">
+                    <p ng-message="required">First Name can't be empty</p>
+                    <p ng-message="minlength">Name must be more than 2 chars</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" name="lastName" id="lastName" ng-model="mainVm.newUsers.lastName"
+                       placeholder="Your Last Name" required minlength="3">
+                <div  ng-messages="userForm.lastName.$error" class="error" ng-if="userForm.lastName.$dirty">
+                    <p ng-message="required">Last Name can't be empty</p>
+                    <p ng-message="minlength">Last must be more than 2 chars</p>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" name="email" id="email" ng-model="mainVm.newUsers.email"
+                       placeholder="example@domain.com" required>
+                <div ng-messages="userForm.email.$error" class="error" ng-if="userForm.email.$dirty">
+                    <p ng-message="required">Email can't be empty</p>
+                    <p ng-message="email">Email invalid</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" class="form-control" name="city" id="city" ng-model="mainVm.newUsers.address.city"
+                       placeholder="Your City..." required>
+                <div ng-messages="userForm.city.$error" class="error" ng-if="userForm.city.$dirty">
+                    <p ng-message="required">City can't be empty</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" class="form-control" name="company" id="company" ng-model="mainVm.newUsers.company.name"
+                       placeholder="Your Company..." required>
+                <div ng-messages="userForm.company.$error" class="error" ng-if="userForm.company.$dirty">
+                    <p ng-message="required">Company can't be empty</p>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-default" ng-disabled="userForm.$invalid">Add User</button>
+        </form>
+    </script>
+</head>
+
+<body>
+<div ng-controller="MainController as mainVm">
+
+    <p>{{'4237377548' | phone:'+1'}}</p>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6" ng-include="'add-form.tmpl'"></div>
+            <div class="col-sm-6" ng-include="'views/user-list.tmpl.html'"></div>
+        </div>
+    </div>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-messages.js"></script>
+<script src="app.js"></script>
+<script src="main.controller.js"></script>
+<script src="service/data.service.js"></script>
+<script src="filter/phone.filter.js"></script>
+</body>
+</html>

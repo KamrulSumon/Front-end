@@ -1,0 +1,77 @@
+<!doctype html>
+<html ng-app="plunkar">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
+    <script src="main.controller.js"></script>
+</head>
+<body>
+<div ng-controller="MainController as mainVm">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <form ng-submit="mainVm.addUser()">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" class="form-control" id="firstName" ng-model="mainVm.newUsers.firstName"
+                               placeholder="Your First Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" ng-model="mainVm.newUsers.lastName"
+                               placeholder="Your Last Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" ng-model="mainVm.newUsers.email"
+                               placeholder="example@domain.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" id="city" ng-model="mainVm.newUsers.address.city"
+                               placeholder="Your City...">
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" class="form-control" id="company" ng-model="mainVm.newUsers.company.name"
+                               placeholder="Your Company...">
+                    </div>
+                    <button type="submit" class="btn btn-default">Add User</button>
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <table class="table table-striped">
+                    <thead>
+                    <th></th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>City</th>
+                    <th>Company</th>
+                    <th>Action</th>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="user in mainVm.users"
+                        ng-class="{true: 'red-color', false: 'blue-color'}[user.address.state == 'MN']"
+                        ng-show="user.address.state != 'TX'">
+                        <td><img ng-src="{{user.profilePic}}" class="img-responsive"></td>
+                        <td>{{user.firstName}}</td>
+                        <td>{{user.lastName}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.address.city}}</td>
+                        <td>{{user.company.name}}</td>
+                        <td><i ng-click="mainVm.deleteUser($index)" class="glyphicon glyphicon-remove"></i></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

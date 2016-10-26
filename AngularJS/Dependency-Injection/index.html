@@ -1,0 +1,35 @@
+<!doctype html>
+<html ng-app="plunkar">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
+    <script src="main.controller.js"></script>
+</head>
+<body>
+<div>
+    <label>Name:</label>
+    <input type="text" ng-model="yourName" placeholder="Enter a name here">
+    <hr>
+    <h1>Hello {{yourName}}!</h1>
+
+    <ul>
+        <li>First</li>
+        <li>Second</li>
+        <li>Third</li>
+    </ul>
+
+    <div ng-controller="MainController as mainVm1">
+        <p>{{mainVm1.title}}</p>
+        <p>{{mainVm1.users}}</p>
+    </div>
+    <hr>
+    <div ng-controller="MainController as mainVm2">
+        <p>{{mainVm2.title}}</p>
+        <p>{{mainVm2.users}}</p>
+    </div>
+
+</div>
+</body>
+</html>

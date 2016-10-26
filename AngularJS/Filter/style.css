@@ -1,0 +1,11 @@
+.WA, .TX, .GA{
+    color: red;
+}
+
+.FL, .VA, .CA{
+    color: blue;
+}
+
+img{
+   min-width: 50px;
+}

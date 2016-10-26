@@ -1,0 +1,16 @@
+
+.red-color {
+    color: red;
+}
+
+.blue-color {
+    color: blue;
+}
+
+.MN, .TX, .GA {
+    color: red;
+}
+
+.FL, .VA, .CA {
+    color: blue;
+}
